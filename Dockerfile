@@ -7,8 +7,8 @@ LABEL version="1.0.0"
 RUN apt-get update && apt-get install -y wget git mysql-client \
     && wget https://getcomposer.org/installer \
     && php ./installer \
-    && ./composer.phar require drush/drush \
+    && ./composer.phar global require drush/drush \
     && rm ./composer.phar ./installer \
-    && cp ./vendor/bin/drush /drush
+    && ln -s /root/.composer/vendor/bin/drush /drush
     
 CMD ["/drush"]
