@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y wget git mysql-client \
     && wget https://getcomposer.org/installer \
     && php ./installer \
     && ./composer.phar require drush/drush "8.x" \
-    && rm ./composer.phar ./installer
+    && rm ./composer.phar ./installer \
+    && cp ./vendor/bin/drush /drush
     
-CMD ["/var/www/html/vendor/bin/drush"]
+CMD ["/drush"]
